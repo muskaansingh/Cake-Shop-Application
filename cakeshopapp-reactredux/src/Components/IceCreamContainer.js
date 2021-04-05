@@ -1,29 +1,29 @@
 import React from 'react';
-import {buyCake} from '../redux';
+import {buyIcecream} from '../redux';
 import {connect} from 'react-redux';
 
-function CakeContainer(props) {
+function IceCreamContainer(props) {
     return (
         <div>
-            <h2>Number of cakes: {props.numOfCakes}</h2>
-            <button onClick={props.buyCake}>Buy Cake</button>
+            <h2>Number of Ice-cream: {props.numOfIcecreams}</h2>
+            <button onClick={props.buyIcecream}>Buy Ice-cream</button>
         </div>
     )
 }
 // step1---- mapStateToProps: state from the redux store is mapped to the component props
 const mapStateToProps = (state) => {
     return {
-        numOfCakes: state.cake.numOfCakes
+        numOfIcecreams: state.icecream.numOfIcecreams
     }
 }
 
 //step2---- mapDispatchToProps: maps the dispatch of action creator to the prop in our component
 const mapDispatchToProps = (dispatch) => {
     return {
-        buyCake: () => dispatch(buyCake())
+        buyIcecream: () => dispatch((buyIcecream()))
     }
 }
 
 //step3 == connect these 2 functions, for that we use react connect() from react-redux library
 
-export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(IceCreamContainer);
